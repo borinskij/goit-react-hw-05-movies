@@ -1,0 +1,18 @@
+.css.heroTitle {
+  display: block;
+  align-items: center;
+  justify-items: center;
+  margin: 0%;
+  width: 700px;
+  height: 100%;
+}
+
+/* .css.heroTitle {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  right: -6%;
+  width: 103%;
+} */
