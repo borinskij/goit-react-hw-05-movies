@@ -41,6 +41,5 @@ export const getHero = async () => {
   const { data: results } = await instance.get(`trending/all/day`, {
     params: {},
   });
-  console.log('reedwe23424sults :', results);
   return results;
 };

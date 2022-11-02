@@ -24,7 +24,6 @@ function Cast() {
     // eslint-disable-next-line
   }, []);
   const { cast } = data;
-  console.log('cast :', cast);
   return (
     <div>
       <ul className={css.cast}>

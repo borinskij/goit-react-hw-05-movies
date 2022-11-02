@@ -1,5 +1,5 @@
 import { getMovieId } from 'services/Api';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './MovieDetails.module.css';
 // import PropTypes from 'prop-types'
@@ -68,7 +68,9 @@ function MovieDetails() {
         >
           Огляд
         </Link>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );

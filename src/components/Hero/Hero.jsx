@@ -27,7 +27,6 @@ function Hero() {
     getData();
   }, []);
   const { results } = data;
-  console.log('results :', results);
   return (
     <>
       <Swiper

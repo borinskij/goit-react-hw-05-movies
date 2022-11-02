@@ -15,7 +15,6 @@ function Reviews() {
       try {
         const searchRezult = await getReviews(movieId);
         setData(searchRezult);
-        console.log('searchRezult :', searchRezult);
       } catch (error) {
         console.log(error.message);
       }
@@ -28,11 +27,11 @@ function Reviews() {
     <>
       {results?.map(elem => {
         return (
-          <>
+          <div key={elem.id}>
             <h4>{elem.author}</h4>
             <p>{elem.content}</p>
             <p>{elem.updated_at}</p>
-          </>
+          </div>
         );
       })}
     </>
