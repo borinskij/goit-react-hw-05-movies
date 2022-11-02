@@ -1,4 +1,4 @@
-import { getCast } from 'Helpers/Api';
+import { getCast } from 'services/Api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import css from './Cast.module.css';

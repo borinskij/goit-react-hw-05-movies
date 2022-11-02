@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper';
 
@@ -7,7 +7,7 @@ import css from './Hero.module.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { getHero } from 'Helpers/Api';
+import { getHero } from 'services/Api';
 
 // function Hero({ data }) {
 // Import Swiper React components
@@ -34,7 +34,7 @@ function Hero() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 9500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -48,7 +48,7 @@ function Hero() {
           const urlImg = `https://image.tmdb.org/t/p/original/${elem.backdrop_path}`;
           return (
             <SwiperSlide className={css.slide} key={elem.id}>
-              <h1 className={css.title}>{elem.title}</h1>
+              <h1 className={css.title}>{elem.title || elem.original_name}</h1>
               <img src={urlImg} className={css.slideImg} />
             </SwiperSlide>
           );

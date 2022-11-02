@@ -1,4 +1,4 @@
-import { getMovieId } from 'Helpers/Api';
+import { getMovieId } from 'services/Api';
 import React, { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './MovieDetails.module.css';

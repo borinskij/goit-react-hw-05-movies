@@ -1,7 +1,7 @@
 // import { Header } from 'components/Header/Header';
 // import { getSearch } from 'Helpers/Api';
 import Galerry from 'components/Galerry/Galerry';
-import { searchDataGet } from 'Helpers/Api';
+import { searchDataGet } from 'services/Api';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 // import PropTypes from 'prop-types';

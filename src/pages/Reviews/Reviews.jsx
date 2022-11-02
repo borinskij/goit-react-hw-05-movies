@@ -1,4 +1,4 @@
-import { getReviews } from 'Helpers/Api';
+import { getReviews } from 'services/Api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 

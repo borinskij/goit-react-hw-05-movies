@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Galerry from 'components/Galerry/Galerry';
-import { getMovies } from 'Helpers/Api';
+import { getMovies } from 'services/Api';
 import { Outlet } from 'react-router-dom';
 
 const Home = () => {
