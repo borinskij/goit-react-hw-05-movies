@@ -49,7 +49,7 @@ function Hero() {
           return (
             <SwiperSlide className={css.slide} key={elem.id}>
               <h1 className={css.title}>{elem.title || elem.original_name}</h1>
-              <img src={urlImg} className={css.slideImg} />
+              <img src={urlImg} className={css.slideImg} alt={elem.title} />
             </SwiperSlide>
           );
         })}
