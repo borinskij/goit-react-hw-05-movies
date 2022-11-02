@@ -41,7 +41,7 @@ body {
 
 .slideImg {
   display: block;
-  width: 80%;
+  width: 100%;
   max-height: 90%;
   object-fit: cover;
 }
@@ -50,6 +50,10 @@ body {
   position: absolute;
   font-weight: 900;
   font-size: 48px;
-  border: wheat;
+  /* border: 1px chocolate solid; */
+
   color: white;
+  max-width: 150px;
+  top: 20px;
+  left: 20px;
 }

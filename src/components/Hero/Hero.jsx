@@ -34,7 +34,7 @@ function Hero() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 9500,
+          delay: 1500,
           disableOnInteraction: false,
         }}
         pagination={{
