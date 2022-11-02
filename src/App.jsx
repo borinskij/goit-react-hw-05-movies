@@ -21,8 +21,10 @@ export const App = () => {
           </Route>
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieId/" element={<MoviesDetalis />}>
-            <Route path="/movies/:movieId/cast" element={<Cast />} />
-            <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Route path="/movies/:movieId/cast" element={<Cast />} />
+              <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+            </Suspense>
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -52,6 +52,7 @@ function MovieDetails() {
           <span className={css.paragraph}>Реліз: </span>
           {release_date}
         </p>
+
         <Link
           to={`/movies/${movieId}/cast`}
           state={{ from: location?.state?.from }}
