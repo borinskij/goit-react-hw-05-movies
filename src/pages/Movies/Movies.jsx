@@ -3,12 +3,19 @@
 import Galerry from 'components/Galerry/Galerry';
 import { searchDataGet } from 'Helpers/Api';
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 // import css from './Movies.module.css';
 
-const Movies = ({ query }) => {
+const Movies = () => {
   const [searchData, setSearchData] = useState([]);
+  const [params] = useSearchParams();
+  let query = params.get('query') || '';
+
   useEffect(() => {
+    if (!query) {
+      return;
+    }
     const searchData = async () => {
       try {
         const searchRezult = await searchDataGet(query);
@@ -18,7 +25,6 @@ const Movies = ({ query }) => {
       }
     };
     searchData();
-    // setQuery('');
   }, [query]);
   const qwe = <h2>Мерші до пошуку </h2>;
 

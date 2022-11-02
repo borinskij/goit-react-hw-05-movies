@@ -1,0 +1,68 @@
+.paragraph {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.movieDetails {
+  padding: 30px;
+  position: absolute;
+  display: flex;
+  gap: 14px;
+  margin: auto;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.button {
+  top: -25px;
+  width: 75px;
+  height: 20px;
+  border-radius: 12px;
+  display: inline-flex;
+  margin: 10px;
+  text-decoration: none;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 12px 30px;
+  color: chocolate;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Roboto', Тahoma, sans-serif;
+  background: linear-gradient(to right, #243b55, #141e30);
+  cursor: pointer;
+  border: 2px solid #bfe2ff;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:hover,
+.button:active,
+.button:focus {
+  /* background: linear-gradient(to right, #243b55, #141e30); */
+  color: #243b55;
+}
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50px;
+  bottom: 0;
+  left: 0;
+  border-right: 50px solid transparent;
+  border-top: 50px solid chocolate;
+  transition: transform 0.5s;
+  transform: translateX(-100%);
+  z-index: -1;
+}
+.button:hover:before,
+.button:active:before,
+.button:focus:before {
+  transform: translateX(0);
+}
+
+.link {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}

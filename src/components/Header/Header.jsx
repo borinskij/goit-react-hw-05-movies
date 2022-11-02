@@ -1,17 +1,24 @@
 import { React, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import { createSearchParams, NavLink, useNavigate } from 'react-router-dom';
 import css from './Header.module.css';
 
-export const Header = ({ setQuery }) => {
+export const Header = () => {
   const [name, setName] = useState('');
+  const navigate = useNavigate();
 
   const handelOnChange = event => {
     setName(event.target.value);
   };
   const handelOnSubmit = event => {
     event.preventDefault();
-    setQuery(name);
+
+    navigate({
+      pathname: '/movies',
+      search: createSearchParams({
+        query: name,
+      }).toString(),
+    });
+
     setName('');
   };
 
@@ -25,9 +32,9 @@ export const Header = ({ setQuery }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/movies" className={css.item}>
+            {/* <NavLink to="/movies" className={css.item}>
               Movies
-            </NavLink>
+            </NavLink> */}
           </li>
         </ul>
       </nav>
@@ -38,12 +45,11 @@ export const Header = ({ setQuery }) => {
           className={css.input}
           value={name}
         />
+
         <button type="submit" className={css.button}></button>
       </form>
     </div>
   );
 };
 
-// Header.propTypes = {};
-
-// export default Header;
+export default Header;

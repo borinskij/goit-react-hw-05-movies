@@ -1,17 +1,29 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
-// import Hero from 'components/Hero/Hero';
-import Galerry from 'components/Galerry/Galerry';
+import React, { useEffect, useState } from 'react';
 
-const Home = ({ data }) => {
+import Galerry from 'components/Galerry/Galerry';
+import { getMovies } from 'Helpers/Api';
+import { Outlet } from 'react-router-dom';
+
+const Home = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const fetchRezult = await getMovies();
+        setData(fetchRezult);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getData();
+  }, []);
   return (
     <>
-      {/* <Hero data={data} /> */}
+      <Outlet />
       <Galerry data={data} />
     </>
   );
 };
-
-// Home.propTypes = {};
 
 export default Home;

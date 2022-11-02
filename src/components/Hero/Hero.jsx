@@ -1,30 +1,61 @@
-// import { getTitle } from 'components/Helpers/Api';
-// import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper';
+
 import css from './Hero.module.css';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { getHero } from 'Helpers/Api';
 
-function Hero({ data }) {
-  //   const imgBaseUrl = 'https://image.tmdb.org/t/p/w500/';
-  //   console.log('data.poster_path :', data.poster_path);
-  //   if (data.length === 0) {
-  //     return;
-  //   }
-  const dataHero =
-    'https://image.tmdb.org/t/p/w500//z2yahl2uefxDCl0nogcRBstwruJ.jpg';
-  console.log('dataHero :', dataHero);
+// function Hero({ data }) {
+// Import Swiper React components
 
+function Hero() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const fetchRezult = await getHero();
+        setData(fetchRezult);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getData();
+  }, []);
+  const { results } = data;
+  console.log('results :', results);
   return (
-    <div
-      className={css.heroTitle}
-      style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/w500//z2yahl2uefxDCl0nogcRBstwruJ.jpg")`,
-      }}
-    >
-      {/* <img src={dataHero} alt="ms" /> */}
-    </div>
+    <>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className={css.swiper}
+      >
+        {results?.map(elem => {
+          const urlImg = `https://image.tmdb.org/t/p/original/${elem.backdrop_path}`;
+          return (
+            <SwiperSlide className={css.slide} key={elem.id}>
+              <h1 className={css.title}>{elem.title}</h1>
+              <img src={urlImg} className={css.slideImg} />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </>
   );
 }
-
-// Hero.propTypes = {};
 
 export default Hero;

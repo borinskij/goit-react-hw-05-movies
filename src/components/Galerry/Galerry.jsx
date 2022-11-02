@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import css from './Galerry.module.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Galerry = ({ data }) => {
+  const location = useLocation();
+
   function onClick(a) {
     return;
   }
@@ -12,7 +14,11 @@ const Galerry = ({ data }) => {
       {data?.map(elem => {
         const urlImg = `https://image.tmdb.org/t/p/w500/${elem.poster_path}`;
         return (
-          <Link to={`/movies/:${elem.id}`} key={elem.id}>
+          <Link
+            to={`/movies/${elem.id}`}
+            key={elem.id}
+            state={{ from: location }}
+          >
             <li className={css.galleryItem} onClick={() => onClick(elem.id)}>
               <img
                 src={urlImg}
@@ -31,6 +37,6 @@ const Galerry = ({ data }) => {
   );
 };
 
-// Galerry.propTypes = {};
+Galerry.propTypes = { data: PropTypes.arrayOf(PropTypes.object) };
 
 export default Galerry;
